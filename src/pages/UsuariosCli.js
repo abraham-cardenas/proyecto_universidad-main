@@ -1,8 +1,19 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { Table } from 'reactstrap';
+import {useVehiclesStore} from '../hooks/useVehiclesStore' 
 
-export default class UsuariosCli extends React.Component {
-  render() {
+export const UsuariosCli =()=> {
+
+  const {startLoadingVehicles,vehiculos}=useVehiclesStore();
+
+
+  useEffect(() => {
+    startLoadingVehicles();
+   
+    
+  }, [])
+  
+ 
     return (
       <div className='Container w-100 p-3'>
       <Table>
@@ -58,5 +69,5 @@ export default class UsuariosCli extends React.Component {
       </Table>
       </div>
     );
-  }
+  
 }
