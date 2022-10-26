@@ -22,10 +22,16 @@ export const Home = () => {
          <Input type='text' value={0} size={3}>x+</Input>
         </div>
         <div class="col-md-1 p-1 m-1">
-          <Input type='text' value={0} size={3}>x+</Input>
+          <Input type='text' value={0} size={3}>y</Input>
         </div>
-        <div class="col-md-1 p-1 m-1">
-          <Input type='text' value={0} size={3}>x+</Input>
+        <div>
+          <select type='text' name='r1'>
+          <option selected>....</option>
+          <option> Mayor igual</option>
+          <option>Menor igual</option>
+          <option>Menor</option>
+          <option>Mayor</option>
+          </select>
         </div>
         <div class="col-md-1 p-1 m-1">
           <Input type='text' value={0} size={3}>x+</Input>
