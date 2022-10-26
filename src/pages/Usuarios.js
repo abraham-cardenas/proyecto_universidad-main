@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Table } from 'reactstrap';
+import { useVehiclesStore } from '../hooks/useVehiclesStore'
 
-export default class Usuarios extends React.Component {
-  render() {
-    return (
-      <div className='Container w-100 p-3'>
+
+export const Usuarios= () => {
+
+  const { startLoadingVehicles, vehiculos } = useVehiclesStore();
+
+
+  useEffect(() => {
+    startLoadingVehicles();
+
+
+  }, [])
+
+  return (
+    <div className='Container w-100 p-3'>
       <Table>
         <thead>
           <tr>
@@ -17,36 +28,24 @@ export default class Usuarios extends React.Component {
         </thead>
         <tbody>
           <tr>
-            <th scope="row">0</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
+            {
+              vehiculos.map(vehiculo => (
+                <>
+                  <th scope="row">{vehiculo.Id}</th>
+                  <td>{vehiculo.Nombres}</td>
+                  <td>{vehiculo.Apellidos}</td>
+                  <td>{vehiculo.clave}</td>
+                  <td>{vehiculo.IdtipoUsuario}</td>
+                </>
+
+              ))
+            }
+
+
           </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>@mdo</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
+
         </tbody>
       </Table>
-      </div>
-    );
-  }
+    </div>
+  );
 }

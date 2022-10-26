@@ -5,7 +5,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useAuthStore } from '../hooks/useAuthStore';
 
 function BasicExample() {
-  const {user, startLogout}= useAuthStore();
+  const { user, startLogout } = useAuthStore();
 
   return (
     <Navbar bg="light" expand="lg">
@@ -27,15 +27,15 @@ function BasicExample() {
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
-        <button 
-                onClick={startLogout} 
-                className="btn btn-outline-danger"
-            >
-                <i className="fas fa-sign-out-alt"></i>
-                &nbsp;
-                <span>Salir</span>
+        <button
+          onClick={startLogout}
+          className="btn btn-outline-danger"
+        >
+          <i className="fas fa-sign-out-alt"></i>
+          &nbsp;
+          <span>Salir</span>
 
-            </button>
+        </button>
       </Container>
     </Navbar>
   );

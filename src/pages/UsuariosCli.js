@@ -1,21 +1,21 @@
-import React,{useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { Table } from 'reactstrap';
-import {useVehiclesStore} from '../hooks/useVehiclesStore' 
+import { useVehiclesStore } from '../hooks/useVehiclesStore'
 
-export const UsuariosCli =()=> {
+export const UsuariosCli = () => {
 
-  const {startLoadingVehicles,vehiculos}=useVehiclesStore();
+  const { startLoadingVehicles, vehiculos } = useVehiclesStore();
 
 
   useEffect(() => {
     startLoadingVehicles();
-   
-    
+
+
   }, [])
-  
- 
-    return (
-      <div className='Container w-100 p-3'>
+
+
+  return (
+    <div className='Container w-100 p-3'>
       <Table>
         <thead>
           <tr>
@@ -30,44 +30,27 @@ export const UsuariosCli =()=> {
         </thead>
         <tbody>
           <tr>
-            <th scope="row">0</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
+            {
+              vehiculos.map(vehiculo => (
+                <>
+                  <th scope="row">{vehiculo.Id}</th>
+                  <td>{vehiculo.RazónSocial}</td>
+                  <td>{vehiculo.Nit}</td>
+                  <td>{vehiculo.Municipio}</td>
+                  <td>{vehiculo.Zona}</td>
+                  <td>{vehiculo.Direccion}</td>
+                  <td>{vehiculo.Barrio}</td>
+                </>
+
+              ))
+            }
+
+
           </tr>
-          <tr>
-            <th scope="row">1</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>@mdo</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-          </tr>
+
         </tbody>
       </Table>
-      </div>
-    );
-  
+    </div>
+  );
+
 }
