@@ -9,6 +9,7 @@ import ReportesRutas from '../pages/ReportesRutas'
 import Informes from '../pages/Informes'
 import Registro from '../components/Registro.js'
 import { Vehiculos } from '../pages/Vehiculos';
+import { Empresas } from '../pages/Empresas';
 
 
 export const HomeRoutes = () => {
@@ -24,6 +25,7 @@ export const HomeRoutes = () => {
                         <Route path='Usuarios' element={<Usuarios />} />
                         <Route path='UsuariosCli' element={<UsuariosCli />} />
                         <Route path='Vehiculos' element={<Vehiculos />} />
+                        <Route path='empresas' element={<Empresas />} />
                         <Route path='CreacionVehiculos' element={<CreacionVehiculos />} />
                         <Route path='ReportesRutas' element={<ReportesRutas />} />
                         <Route path='Informes' element={<Informes />} />

@@ -27,9 +27,9 @@ export const Vehiculos = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
                         {
                             vehiculos.map(vehiculo => (
+                    <tr>
                                 <>
                                     <th scope="row">{vehiculo.marca}</th>
                                     <td>{vehiculo.modelo}</td>
@@ -37,11 +37,11 @@ export const Vehiculos = () => {
                                     <td>{vehiculo.estado}</td>
                                 </>
 
-                            ))
-                        }
 
 
                     </tr>
+                            ))
+                        }
                    
                 </tbody>
             </Table>
