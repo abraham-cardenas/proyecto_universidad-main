@@ -4,7 +4,7 @@ import Sidebar from '../components/Sidebar';
 import {Home} from '../pages/Home';
 import {Usuarios} from '../pages/Usuarios';
 import {UsuariosCli} from '../pages/UsuariosCli';
-import CreacionVehiculos from '../pages/Creacionvehiculos'
+import {CreacionVehiculos} from '../pages/Creacionvehiculos'
 import ReportesRutas from '../pages/ReportesRutas'
 import Informes from '../pages/Informes'
 import Registro from '../components/Registro.js'

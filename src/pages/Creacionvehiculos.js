@@ -1,8 +1,7 @@
 import React from 'react';
 import { Button, Label, Input } from 'reactstrap';
 
-export default class CreacionVehiculos extends React.Component {
-  render() {
+export const CreacionVehiculos = () =>{
     return (
       <div className='Container w-100 p-3 bg-blue'>
         <form class="row g-3">
@@ -106,4 +105,4 @@ export default class CreacionVehiculos extends React.Component {
       </div>
     );
   }
-}
+
