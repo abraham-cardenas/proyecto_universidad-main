@@ -30,10 +30,6 @@ const Sidebar = () => {
           <NavLink to="empresas" exact className="text-dark rounded py-2 w-100  d-inline-block px-3"
             activeclassname="active"><FaIcons.FaUserPlus className="me-2" />empresas</NavLink>
         </li>
-        <li>
-          <NavLink to="UsuariosCli" exact className="text-dark rounded py-2 w-100  d-inline-block px-3"
-            activeclassname="active"><FaIcons.FaUserPlus className="me-2" /> Nuevo Cliente</NavLink>
-        </li>
         <p > <strong>Consulta de Vehiculos</strong></p>
         <li>
           <NavLink to="CreacionVehiculos" exact className="text-dark rounded py-2 w-100 d-inline-block  px-3"

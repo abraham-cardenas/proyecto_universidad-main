@@ -8,7 +8,6 @@ export const useEmpresaStore = () => {
 
     const dispatch= useDispatch();
     const{empresas} = useSelector(state=> state.empresa);
-
     const startLoadingEmpresas=async()=>{
 
         try {

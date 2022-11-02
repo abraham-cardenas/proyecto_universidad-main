@@ -9,13 +9,14 @@ const EmpresaFormFields = {
     municipio: "",
     zona: "",
     direccion: "",
-    barrio: ""
+    barrio: "",
+    totalpedido:""
 };
 
 export const CreacionVehiculos = () => {
 
   const{StartSavingEmpresa}=useEmpresaStore();
-  const{  nombre, nit, municipio, zona, direccion, barrio, onInputChange, formState}=useForm(EmpresaFormFields);
+  const{  nombre, nit, municipio, zona, direccion, barrio,totalpedido, onInputChange, formState}=useForm(EmpresaFormFields);
   
 
   const Createvehicle=async(event)=>{
@@ -97,6 +98,19 @@ export const CreacionVehiculos = () => {
               type="text" 
               aria-label="Barrio" 
               class="form-control"></Input>
+        </div>
+        <div class="col-md-5">
+          <Label htmlFor="inputPedido" class="form-label">Total Pedido</Label>
+          <div class="input-group mb-6">
+            <span class="input-group-text">$</span>
+            <Input name='totalpedido'
+              value={totalpedido}
+              onChange={onInputChange}
+              type="text" 
+              aria-label="Total pedido" 
+              class="form-control"></Input>
+            <span class="input-group-text">.00</span>
+          </div>
         </div>
         <h3 > Datos del Conductor</h3>
         <div class="col-md-4">
