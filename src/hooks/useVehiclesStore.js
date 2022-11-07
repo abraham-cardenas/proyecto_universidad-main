@@ -1,8 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
+import Swal from 'sweetalert2';
 import { calendarApi } from '../api';
-import {onLoadVehicles} from '../store';
+import {onLoadVehicles} from '../store/vehiculos/VehiculoSlice';
 
 export const useVehiclesStore = () => {
+    
     const dispatch=useDispatch();
     const{vehiculos} = useSelector(state=> state.vehicle);
     const startLoadingVehicles=async()=>{
@@ -17,12 +19,22 @@ export const useVehiclesStore = () => {
       
           }
 
-        
+    }
+    const StartSavingVehicles = async (vehiculos) => {
+
+        try {
+
+            const { data } = await calendarApi.post('/api/vehiculos', vehiculos);
+
+        } catch (error) {
+            Swal.fire('Error al guardar', error.response.data.msg, 'error');
+        }
 
     }
     return{
-        startLoadingVehicles,
-        vehiculos
+        StartSavingVehicles,
+        vehiculos,
+        startLoadingVehicles       
 
     }
  

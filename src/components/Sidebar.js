@@ -32,6 +32,10 @@ const Sidebar = () => {
         </li>
         <p > <strong>Consulta de Vehiculos</strong></p>
         <li>
+          <NavLink to="CreacionEmpresa" exact className="text-dark rounded py-2 w-100 d-inline-block  px-3"
+            activeclassname="active"><FaIcons.FaCarAlt className="me-2" />Creacion Empresa</NavLink>
+        </li>
+        <li>
           <NavLink to="CreacionVehiculos" exact className="text-dark rounded py-2 w-100 d-inline-block  px-3"
             activeclassname="active"><FaIcons.FaCarAlt className="me-2" />Creacion de Vehiculos</NavLink>
         </li>

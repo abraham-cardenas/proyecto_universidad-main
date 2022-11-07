@@ -23,6 +23,8 @@ export const Vehiculos = () => {
             <th>nombre</th>
             <th>apellidos</th>
             <th>Disponibilidad</th>
+            <th>Total de los pedidos</th>
+            <th>Costo por desplazamiento</th>
             <th>Estado</th>
 
           </tr>
@@ -35,6 +37,8 @@ export const Vehiculos = () => {
                   <th scope="row">{vehiculo.marca}</th>
                   <td>{vehiculo.nombre}</td>
                   <td>{vehiculo.apellidos}</td>
+                  <td>{vehiculo.promediopedido}</td>
+                  <td>{vehiculo.costodiario}</td>
                   <td>{vehiculo.disponibilidad}</td>
                   <td>{vehiculo.estado}</td>
                 </>
