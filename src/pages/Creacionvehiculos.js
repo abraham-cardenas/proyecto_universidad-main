@@ -1,8 +1,9 @@
 import { Button, Label, Input } from 'reactstrap';
 import { useVehiclesStore } from '../hooks/useVehiclesStore';
 import { useForm } from '../hooks/useForm';
+import { useConductorStore } from '../hooks/useConductorStore';
 
-const VehiculosFormFields = {
+/* const VehiculosFormFields = {
   marca: "",
   nombre: "",
   apellidos: "",
@@ -10,29 +11,52 @@ const VehiculosFormFields = {
   costosdiario: "",
   disponibilidad: "",
   estado: ""
-};
+}; */
 
+const ConductorFormField = {
+  nombre: "",
+  marca: "",
+  apellido: "",
+  promedio: "",
+  costo: "",
+  disponibilidad: "",
+  estado: "",
+}
 export const CreacionVehiculos = () => {
+  const { StartSavingConductor } = useConductorStore();
 
-  const { StartSavingVehicle } = useVehiclesStore();
-  const { marca, nombre, apellidos, promediopedido, costosdiario, disponibilidad, estado, onInputChange, formState } = useForm(VehiculosFormFields);
+  const { 
+    nombre,apellido,promedio, costo,marca,
+    disponibilidad, estado, onInputChange, formState } = useForm(ConductorFormField);
 
-  const Createvehicle = async (event) => {
+  const CreateConductor = async (event) => {
     event.preventDefault();
 
-    await StartSavingVehicle(formState);
+    await StartSavingConductor(formState);
 
 
   }
 
 
+  /*  const { StartSavingVehicle } = useVehiclesStore();
+   const { marca, nombre, apellidos, promediopedido, costosdiario, disponibilidad, estado, onInputChange, formState } = useForm(VehiculosFormFields);
+ 
+   const Createvehicle = async (event) => {
+     event.preventDefault();
+ 
+     await StartSavingVehicle(formState);
+ 
+ 
+   } */
+
+
   return (
     <div className='Container w-100 p-3 bg-blue'>
-      <form class="row g-3" onSubmit={Createvehicle}>
+      <form class="row g-3" onSubmit={CreateConductor}>
         <h3 > Datos del Conductor</h3>
         <div class="col-md-4">
           <Label htmlFor="inputVehiculo" class="form-label">Vehiculos</Label>
-          <select
+          {<select
             id="inpuMarca"
             name='marca'
             value={marca}
@@ -44,7 +68,7 @@ export const CreacionVehiculos = () => {
             <option>Chevrolet Luv</option>
             <option>NHR</option>
             <option>NKR</option>
-          </select>
+          </select>}
         </div>
         <div class="col-md-4">
           <Label htmlFor="inputBarri" class="form-label">Nombre</Label>
@@ -57,8 +81,8 @@ export const CreacionVehiculos = () => {
         <div class="col-md-4">
           <Label htmlFor="inputBarri" class="form-label">Apellidos</Label>
           <Input
-            name='apellidos'
-            value={apellidos}
+            name='apellido'
+            value={apellido}
             onChange={onInputChange}
             class="form-select"></Input>
         </div>
@@ -67,8 +91,8 @@ export const CreacionVehiculos = () => {
           <div class="input-group mb-6">
             <span class="input-group-text">$</span>
             <Input
-              name='promediopedido'
-              value={promediopedido}
+              name='promedio'
+              value={promedio}
               onChange={onInputChange}
               class="form-select"></Input>
             <span class="input-group-text">.00</span>
@@ -79,8 +103,8 @@ export const CreacionVehiculos = () => {
           <div class="input-group mb-6">
             <span class="input-group-text">$</span>
             <Input
-              name='costosdiario'
-              value={costosdiario}
+              name='costo'
+              value={costo}
               onChange={onInputChange}
               class="form-select" ></Input>
             <span class="input-group-text">.00</span>
@@ -116,6 +140,9 @@ export const CreacionVehiculos = () => {
           <Button type="submit" class="btn btn-primary">Guardar</Button>
         </div>
       </form>
+      <pre>
+        <code>{JSON.stringify(formState, null,2) }</code>
+      </pre>
     </div>
   );
 }
