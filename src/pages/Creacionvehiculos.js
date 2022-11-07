@@ -7,20 +7,20 @@ const VehiculosFormFields = {
   nombre: "",
   apellidos: "",
   promediopedido: "",
-  costodiario: "",
+  costosdiario: "",
   disponibilidad: "",
   estado: ""
 };
 
 export const CreacionVehiculos = () => {
 
-  const { StartSavingVehicles } = useVehiclesStore();
-  const { marca, nombre, apellidos, promediopedido, costodiario, disponibilidad, estado, onInputChange, formState } = useForm(VehiculosFormFields);
+  const { StartSavingVehicle } = useVehiclesStore();
+  const { marca, nombre, apellidos, promediopedido, costosdiario, disponibilidad, estado, onInputChange, formState } = useForm(VehiculosFormFields);
 
   const Createvehicle = async (event) => {
     event.preventDefault();
 
-    await StartSavingVehicles(formState);
+    await StartSavingVehicle(formState);
 
 
   }
@@ -79,8 +79,8 @@ export const CreacionVehiculos = () => {
           <div class="input-group mb-6">
             <span class="input-group-text">$</span>
             <Input
-              name='costodiario'
-              value={costodiario}
+              name='costosdiario'
+              value={costosdiario}
               onChange={onInputChange}
               class="form-select" ></Input>
             <span class="input-group-text">.00</span>

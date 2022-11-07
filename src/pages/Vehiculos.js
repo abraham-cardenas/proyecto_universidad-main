@@ -38,7 +38,7 @@ export const Vehiculos = () => {
                   <td>{vehiculo.nombre}</td>
                   <td>{vehiculo.apellidos}</td>
                   <td>{vehiculo.promediopedido}</td>
-                  <td>{vehiculo.costodiario}</td>
+                  <td>{vehiculo.costosdiario}</td>
                   <td>{vehiculo.disponibilidad}</td>
                   <td>{vehiculo.estado}</td>
                 </>

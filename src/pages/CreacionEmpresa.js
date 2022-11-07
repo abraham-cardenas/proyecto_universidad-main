@@ -27,7 +27,6 @@ const EmpresaFormFields = {
     return (
       <div className='Container w-100 p-3 bg-blue'>
         <form class="row g-3" onSubmit={CreateEmpresa}>
-          <h1 color=''> Consulta de Vehiculos </h1>
           <h3 > Datos de la Empresa</h3>
           <div class="col-md-5">
             <Label htmlFor="inputNombreEm" class="form-label">Nombre de la Empresa</Label>

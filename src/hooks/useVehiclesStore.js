@@ -13,14 +13,12 @@ export const useVehiclesStore = () => {
             const { data } = await calendarApi.get('/api/vehiculos/');
             console.log(data)
             dispatch(onLoadVehicles(data.vehiculos));
-      
-      
           } catch (error) {
       
           }
 
     }
-    const StartSavingVehicles = async (vehiculos) => {
+    const StartSavingVehicle = async (vehiculos) => {
 
         try {
 
@@ -32,7 +30,7 @@ export const useVehiclesStore = () => {
 
     }
     return{
-        StartSavingVehicles,
+        StartSavingVehicle,
         vehiculos,
         startLoadingVehicles       
 
