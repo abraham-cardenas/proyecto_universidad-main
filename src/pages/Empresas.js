@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { Table } from 'reactstrap';
+import { EmpresaModal } from '../components/EmpresaModal';
 import { useEmpresaStore } from '../hooks/useEmpresaStore';
 
 export const Empresas = () => {
 
-  const { startLoadingEmpresas, empresas } = useEmpresaStore();
+  const { startLoadingEmpresas, empresas, startDeletingEmpresa } = useEmpresaStore();
 
 
   useEffect(() => {
@@ -12,10 +13,17 @@ export const Empresas = () => {
 
 
   }, [])
+  useEffect(() => {
+    startLoadingEmpresas();
+
+  }, [empresas])
+  
+  
 
 
   return (
-    <div className='Container w-100 p-3'>
+    <div id='root' className='Container w-100 p-3'>
+      <EmpresaModal/>
       <Table>
         <thead>
           <tr>
@@ -41,7 +49,7 @@ export const Empresas = () => {
                   <td>{empresa.direccion}</td>
                   <td>{empresa.barrio}</td>
                   <td>{empresa.totalpedido}</td>
-                  <button class='col-red w-3 p-1'>Eliminar</button>
+                  <button onClick={()=>startDeletingEmpresa(empresa.id)} class='col-red w-3 p-1'>Eliminar</button>
                   <button class=' w-1 p-1'>Editar</button>
                 </>
 

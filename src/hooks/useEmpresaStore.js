@@ -2,7 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
 import { calendarApi } from '../api'
-import { onLoadEmpresas } from '../store/empresa/EmpresaSlice';
+import { onLoadEmpresas,onDeleteEmpresa } from '../store/empresa/EmpresaSlice';
 
 export const useEmpresaStore = () => {
 
@@ -35,10 +35,23 @@ export const useEmpresaStore = () => {
         }
 
     }
+
+    const startDeletingEmpresa=async(id)=>{
+        try {
+            console.log(id);
+            const { data } = await calendarApi.delete(`/api/empresa/${id}`);
+            dispatch(onDeleteEmpresa(id));
+
+        } catch (error) {
+            Swal.fire('Error al guardar', error.response.data.msg, 'error');
+        }
+
+    }
     return {
         StartSavingEmpresa,
         empresas,
-        startLoadingEmpresas
+        startLoadingEmpresas,
+        startDeletingEmpresa
 
     }
 }
