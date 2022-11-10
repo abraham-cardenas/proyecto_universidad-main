@@ -10,6 +10,7 @@ import Informes from '../pages/Informes'
 import Registro from '../components/Registro.js'
 import { Vehiculos } from '../pages/Vehiculos';
 import { Empresas } from '../pages/Empresas';
+import { Mapa } from '../pages/Mapa';
 
 
 export const HomeRoutes = () => {
@@ -29,7 +30,9 @@ export const HomeRoutes = () => {
             <Route path='CreacionVehiculos' element={<CreacionVehiculos />} />
             <Route path='ReportesRutas' element={<ReportesRutas />} />
             <Route path='Informes' element={<Informes />} />
+            <Route path='Mapa' element={<Mapa/>} />
             <Route path='/*' element={<Navigate to='/' />} />
+
           </Routes>
         </div>
       </div>
