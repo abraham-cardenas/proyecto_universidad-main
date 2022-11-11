@@ -4,23 +4,43 @@ export const EmpresaSlice = createSlice({
     initialState: {
         empresas: [],
         isLoadingempresas: true,
+        activeEmpresa: null
+
     },
     reducers: {
+        onSetActiveEmpresa: (state, { payload }) => {
+            state.activeEmpresa = payload;
+
+        },
 
         onLoadEmpresas: (state, { payload = [] }) => {
-            state.isLoadingempresas = false;
+           state.isLoadingempresas = false;
+           state.empresas=payload;
 
-            state.empresas = payload;
-
+        
+           
 
 
         },
-        onDeleteEmpresa: (state, payload) => {
-            state.empresas = state.empresas.filter(empresa => empresa.id != payload)
-        }
+        onDeleteEmpresa: (state) => {
+            if (state.activeEmpresa) {
+                state.empresas = state.empresas.filter(empresa => empresa.id !== state.activeEmpresa.id);
+                state.activeEmpresa = null;
+            }
+        },
+        onUpdateEmpresa: (state, { payload }) => {
+            state.empresas = state.empresas.map(empresa => {
+                if (empresa.id == payload.id) {
+                    return payload;
+
+                }
+                return empresa;
+            });
+        },
+
     }
 });
 
 
 // Action creators are generated for each case reducer function
-export const { onLoadEmpresas,onDeleteEmpresa } = EmpresaSlice.actions;
+export const { onLoadEmpresas,onDeleteEmpresa, onSetActiveEmpresa, onUpdateEmpresa } = EmpresaSlice.actions;
