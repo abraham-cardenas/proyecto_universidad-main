@@ -8,7 +8,7 @@ import {CreacionEmpresa} from '../pages/CreacionEmpresa'
 import ReportesRutas from '../pages/ReportesRutas'
 import Informes from '../pages/Informes'
 import Registro from '../components/Registro.js'
-import { Vehiculos } from '../pages/Vehiculos';
+import {Conductores } from '../pages/Vehiculos';
 import { Empresas } from '../pages/Empresas';
 import { Mapa } from '../pages/Mapa';
 
@@ -24,7 +24,7 @@ export const HomeRoutes = () => {
             <Route path='/' element={<Home />} />
             <Route path='Registros' element={<Registro />} />
             <Route path='Usuarios' element={<Usuarios />} />
-            <Route path='Vehiculos' element={<Vehiculos />} />
+            <Route path='Vehiculos' element={<Conductores />} />
             <Route path='empresas' element={<Empresas />} />
             <Route path='CreacionEmpresa' element={<CreacionEmpresa />} />
             <Route path='CreacionVehiculos' element={<CreacionVehiculos />} />

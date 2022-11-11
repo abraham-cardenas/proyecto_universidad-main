@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react';
 import { Table } from 'reactstrap';
-import { useVehiclesStore } from '../hooks/useVehiclesStore'
+import { useConductorStore } from '../hooks/useConductorStore'
 
-export const Vehiculos = () => {
+export const Conductores = () => {
 
-  const { startLoadingVehicles, vehiculos } = useVehiclesStore();
+  const { startLoadingConductores
+    , conductores } =  useConductorStore();
 
 
   useEffect(() => {
-    startLoadingVehicles();
+    startLoadingConductores();
 
 
   }, [])
@@ -31,16 +32,16 @@ export const Vehiculos = () => {
         </thead>
         <tbody>
           {
-            vehiculos.map(vehiculo => (
+            conductores.map(conductores => (
               <tr>
                 <>
-                  <th scope="row">{vehiculo.marca}</th>
-                  <td>{vehiculo.nombre}</td>
-                  <td>{vehiculo.apellidos}</td>
-                  <td>{vehiculo.promediopedido}</td>
-                  <td>{vehiculo.costosdiario}</td>
-                  <td>{vehiculo.disponibilidad}</td>
-                  <td>{vehiculo.estado}</td>
+                  <th scope="row">{conductores.marca}</th>
+                  <td>{conductores.nombre}</td>
+                  <td>{conductores.apellidos}</td>
+                  <td>{conductores.promedio}</td>
+                  <td>{conductores.costo}</td>
+                  <td>{conductores.disponibilidad}</td>
+                  <td>{conductores.estado}</td>
                 </>
 
 

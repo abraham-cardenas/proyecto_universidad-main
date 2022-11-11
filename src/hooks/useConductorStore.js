@@ -27,6 +27,7 @@ export const useConductorStore = () => {
 
         } catch (error) {
             Swal.fire('Error al guardar', error.response.data.msg, 'error');
+            
         }
 
     }

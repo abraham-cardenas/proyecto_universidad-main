@@ -140,10 +140,9 @@ export const CreacionVehiculos = () => {
           <Button type="submit" class="btn btn-primary">Guardar</Button>
         </div>
       </form>
-      <pre>
-        <code>{JSON.stringify(formState, null,2) }</code>
-      </pre>
     </div>
   );
 }
+
+
 
