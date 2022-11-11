@@ -2,22 +2,38 @@ import React, { useEffect } from 'react';
 import { Table } from 'reactstrap';
 import { EmpresaModal } from '../components/EmpresaModal';
 import { useEmpresaStore } from '../hooks/useEmpresaStore';
+import { useUiStore } from '../hooks/useUiStore';
 
 export const Empresas = () => {
 
-  const { startLoadingEmpresas, empresas, startDeletingEmpresa } = useEmpresaStore();
+  const { 
+     startLoadingEmpresas, 
+      empresas, 
+      startDeletingEmpresa, 
+      setActiveEmpresa } = useEmpresaStore();
 
 
   useEffect(() => {
     startLoadingEmpresas();
-
 
   }, [])
-  useEffect(() => {
-    startLoadingEmpresas();
 
-  }, [empresas])
-  
+  const { openDateModal } = useUiStore();
+
+
+  const onSelect = (empresa) => {
+    setActiveEmpresa(empresa);
+    openDateModal();
+
+   
+  };
+
+  const onSelectDelete=async(empresa)=>{
+    setActiveEmpresa(empresa);
+    await startDeletingEmpresa(empresa)
+  }
+
+
   
 
 
@@ -49,8 +65,8 @@ export const Empresas = () => {
                   <td>{empresa.direccion}</td>
                   <td>{empresa.barrio}</td>
                   <td>{empresa.totalpedido}</td>
-                  <button onClick={()=>startDeletingEmpresa(empresa.id)} class='col-red w-3 p-1'>Eliminar</button>
-                  <button class=' w-1 p-1'>Editar</button>
+                  <button onClick={()=>onSelectDelete(empresa)} class='col-red w-3 p-1'>Eliminar</button>
+                  <button class=' w-1 p-1' onClick={()=>onSelect(empresa)}>Editar</button>
                 </>
 
 

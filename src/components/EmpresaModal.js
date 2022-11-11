@@ -1,76 +1,81 @@
-import React,{useState} from 'react';
-import ReactDOM from 'react-dom';
+import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
+import { useEmpresaStore } from '../hooks/useEmpresaStore';
+import { useUiStore } from '../hooks/useUiStore';
+
 
 const customStyles = {
-    content: {
-        top: '50%',
-        left: '50%',
-        right: 'auto',
-        bottom: 'auto',
-        marginRight: '-50%',
-        transform: 'translate(-50%, -50%)',
-    },
-};
 
-// Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
-Modal.setAppElement('#root');
+    content: {
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+    },
+  };
+  Modal.setAppElement("#root");
 
 export const EmpresaModal = () => {
-    let subtitle;
-    const [modalIsOpen, setIsOpen] = React.useState(false);
-
-    function openModal() {
-        setIsOpen(true);
-    }
-
-    function afterOpenModal() {
-        // references are now sync'd and can be accessed.
-        subtitle.style.color = '#f00';
-    }
-
-    function closeModal() {
-        setIsOpen(false);
-    }
 
     const [formValues, setformValues] = useState({
         nombre: '',
         nit: '',
-        municipio:'',
-        zona:'',
-        direccion:'',
-        barrio:''
+        municipio: '',
+        zona: '',
+        direccion: '',
+        barrio: ''
 
     });
+    const{isDateModalOpen, closeDateModal} =useUiStore();
+
+    const { activeEmpresa, StartSavingEmpresa, startUpdateEmpresa } = useEmpresaStore();
+
+    useEffect(() => {
+        if (activeEmpresa !== null) {
+            setformValues({ ...activeEmpresa });
+        }
+
+    }, [activeEmpresa])
+
+    const onCloseModal = () => {
+        closeDateModal();
+       
+      };
+
+    
     const onInputChanged = ({ target }) => {
         setformValues({
             ...formValues,
             [target.name]: target.value
         })
     }
-    const onCloseModal = () => {
+   
 
-        //falta implementar
-       
-    };
-
-    const onSubmit=async (event)=>{
+    const onSubmit = async (event) => {
         event.preventDefault();
         //Falta por implementar
-    
-  
+        console.log({activo: formValues})
+        await startUpdateEmpresa(formValues);
+        closeDateModal();
+
+
     }
 
     return (
         <div>
-            <button onClick={openModal}>Open Modal</button>
+            
             <Modal
-                isOpen={modalIsOpen}
-                onAfterOpen={afterOpenModal}
-                onRequestClose={closeModal}
+                isOpen={isDateModalOpen}
+                onRequestClose={onCloseModal}
                 style={customStyles}
-                contentLabel="Example Modal"
+                className="modal"
+                overlayClassName="modal-fondo"
+                closeTimeoutMS={200}
             >
+                <h1> Nuevo evento </h1>
+                <hr />
                 <form onSubmit={onSubmit} className="container">
 
                     <div className="form-group mb-2">
@@ -79,12 +84,13 @@ export const EmpresaModal = () => {
                             type="text"
                             className={`form-control`}
                             placeholder=""
-                            name="title"
+                            name="nombre"
                             autoComplete="off"
                             value={formValues.nombre}
                             onChange={onInputChanged}
+                            
                         />
-                     
+                       
                     </div>
                     <div className="form-group mb-2">
                         <label>Nit</label>
@@ -92,12 +98,13 @@ export const EmpresaModal = () => {
                             type="text"
                             className={`form-control`}
                             placeholder=""
-                            name="title"
+                            name="nit"
                             autoComplete="off"
                             value={formValues.nit}
                             onChange={onInputChanged}
+                            
                         />
-                     
+                       
                     </div>
                     <div className="form-group mb-2">
                         <label>Municipio</label>
@@ -105,25 +112,23 @@ export const EmpresaModal = () => {
                             type="text"
                             className={`form-control`}
                             placeholder=""
-                            name="title"
+                            name="municipio"
                             autoComplete="off"
                             value={formValues.municipio}
                             onChange={onInputChanged}
-                        />
-                     
+                        /> 
                     </div>
                     <div className="form-group mb-2">
-                        <label>zona</label>
+                        <label>Zona</label>
                         <input
                             type="text"
                             className={`form-control`}
                             placeholder=""
-                            name="title"
+                            name="zona"
                             autoComplete="off"
                             value={formValues.zona}
                             onChange={onInputChanged}
-                        />
-                     
+                        /> 
                     </div>
                     <div className="form-group mb-2">
                         <label>Direccion</label>
@@ -131,12 +136,11 @@ export const EmpresaModal = () => {
                             type="text"
                             className={`form-control`}
                             placeholder=""
-                            name="title"
+                            name="direccion"
                             autoComplete="off"
                             value={formValues.direccion}
                             onChange={onInputChanged}
-                        />
-                     
+                        /> 
                     </div>
                     <div className="form-group mb-2">
                         <label>Barrio</label>
@@ -144,20 +148,28 @@ export const EmpresaModal = () => {
                             type="text"
                             className={`form-control`}
                             placeholder=""
-                            name="title"
+                            name="barrio"
                             autoComplete="off"
                             value={formValues.barrio}
                             onChange={onInputChanged}
-                        />
-                     
+                        /> 
                     </div>
 
-                    
+                   
+
                     <button type="submit" className="btn btn-outline-primary btn-block">
-                        <i className="far fa-save"></i>
+                      
                         <span> Guardar</span>
                     </button>
+
+
+
+
+
                 </form>
+
+
+
             </Modal>
         </div>
     );

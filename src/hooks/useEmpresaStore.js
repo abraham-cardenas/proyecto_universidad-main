@@ -2,25 +2,32 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
 import { calendarApi } from '../api'
-import { onLoadEmpresas,onDeleteEmpresa } from '../store/empresa/EmpresaSlice';
+import { onLoadEmpresas, onDeleteEmpresa, onSetActiveEmpresa, onUpdateEmpresa } from '../store/empresa/EmpresaSlice';
 
 export const useEmpresaStore = () => {
 
-    const dispatch= useDispatch();
-    const{empresas} = useSelector(state=> state.empresa);
-    const startLoadingEmpresas=async()=>{
+    const dispatch = useDispatch();
+    const { empresas, activeEmpresa } = useSelector(state => state.empresa);
+
+    const setActiveEmpresa = (empresa) => {
+        dispatch(onSetActiveEmpresa(empresa));
+        console.log(empresa)
+    }
+
+    const startLoadingEmpresas = async () => {
 
         try {
             const { data } = await calendarApi.get('/api/empresa/');
-            console.log(data)
             dispatch(onLoadEmpresas(data.empresa));
-      
-      
-          } catch (error) {
-      
-          }
+            
 
-        
+
+        } catch (error) {
+            
+
+        }
+
+
 
     }
 
@@ -36,11 +43,23 @@ export const useEmpresaStore = () => {
 
     }
 
-    const startDeletingEmpresa=async(id)=>{
+    const startUpdateEmpresa = async (empresa)=>{
+        
         try {
-            console.log(id);
-            const { data } = await calendarApi.delete(`/api/empresa/${id}`);
-            dispatch(onDeleteEmpresa(id));
+            await calendarApi.put(`/api/empresa/${empresa.id}`, empresa);
+            dispatch(onUpdateEmpresa({ ...empresa }));
+            return;
+        } catch (error) {
+            Swal.fire('Error al guardar', error.response.data.msg, 'error');
+
+        }
+    }
+
+    const startDeletingEmpresa = async (empresa) => {
+        try {
+           
+            const { data } = await calendarApi.delete(`/api/empresa/${empresa.id}`);
+            dispatch(onDeleteEmpresa());
 
         } catch (error) {
             Swal.fire('Error al guardar', error.response.data.msg, 'error');
@@ -51,7 +70,10 @@ export const useEmpresaStore = () => {
         StartSavingEmpresa,
         empresas,
         startLoadingEmpresas,
-        startDeletingEmpresa
+        startDeletingEmpresa,
+        setActiveEmpresa,
+        activeEmpresa,
+        startUpdateEmpresa
 
     }
 }

@@ -7,6 +7,8 @@ import 'bootstrap/scss/bootstrap.scss';
 import { store } from "./store";
 import { Provider } from 'react-redux';
 import mapboxgl from 'mapbox-gl'; 
+import './components/modalStyles.css';
+
  
 mapboxgl.accessToken = 'pk.eyJ1IjoiY2FtaWxvLWhlcm5hbmRlejMiLCJhIjoiY2xhOGp4ZXdtMDB3dzN0cGwxd3FxNXRweiJ9.qdhx10s4KhEjJp6Qf2lf2A';
 
