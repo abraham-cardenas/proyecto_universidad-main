@@ -34,10 +34,7 @@ export const Home = () => {
           </select>
         </div>
         <div class="col-md-1 p-1 m-1">
-          <Input type='text' value={0} size={3}>x+</Input>
-        </div>
-        <div class="col-md-1 p-1 m-1">
-          <Input type='text' value={0} size={3}>x+</Input>
+          <input type='text' value={0} size={3}>x+</input>
         </div>
       </form>
     </div>
