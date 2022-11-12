@@ -16,7 +16,6 @@ body{
 
 .flex{
   display: flex;
-
 }
 
 .sidebar{
@@ -35,6 +34,11 @@ body{
           background-color: #c0c0c0;
         }
       }
+    }
+  }
+  @media (min-width: 800px) {
+    .flex {
+      margin: 1em 2em;
     }
   }
 }

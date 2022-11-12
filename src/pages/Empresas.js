@@ -6,11 +6,11 @@ import { useUiStore } from '../hooks/useUiStore';
 
 export const Empresas = () => {
 
-  const { 
-     startLoadingEmpresas, 
-      empresas, 
-      startDeletingEmpresa, 
-      setActiveEmpresa } = useEmpresaStore();
+  const {
+    startLoadingEmpresas,
+    empresas,
+    startDeletingEmpresa,
+    setActiveEmpresa } = useEmpresaStore();
 
 
   useEffect(() => {
@@ -25,25 +25,25 @@ export const Empresas = () => {
     setActiveEmpresa(empresa);
     openDateModal();
 
-   
+
   };
 
-  const onSelectDelete=async(empresa)=>{
+  const onSelectDelete = async (empresa) => {
     setActiveEmpresa(empresa);
     await startDeletingEmpresa(empresa)
   }
 
 
-  
+
 
 
   return (
     <div id='root' className='Container w-100 p-3'>
-      <EmpresaModal/>
+      <EmpresaModal />
       <Table>
         <thead>
           <tr>
-            <th>#nombre</th>
+            <th>#Nombre</th>
             <th>Nit</th>
             <th>Municipio</th>
             <th>Zona</th>
@@ -65,10 +65,12 @@ export const Empresas = () => {
                   <td>{empresa.direccion}</td>
                   <td>{empresa.barrio}</td>
                   <td>{empresa.totalpedido}</td>
-                  <button onClick={()=>onSelectDelete(empresa)} class='col-red w-3 p-1'>Eliminar</button>
-                  <button class=' w-1 p-1' onClick={()=>onSelect(empresa)}>Editar</button>
                 </>
 
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                  <button class="btn btn-primary me-md-1" type="button" onClick={() => onSelectDelete(empresa)} >Eliminar</button>
+                  <button class="btn btn-primary" type="button"  onClick={() => onSelect(empresa)}>Editar</button>
+                </div>
 
 
               </tr>

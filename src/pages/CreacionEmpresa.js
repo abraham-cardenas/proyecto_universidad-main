@@ -1,4 +1,3 @@
-import { Button, Label, Input } from 'reactstrap';
 import { useEmpresaStore } from '../hooks/useEmpresaStore';
 import { useForm } from '../hooks/useForm';
 
@@ -29,28 +28,28 @@ const EmpresaFormFields = {
         <form class="row g-3" onSubmit={CreateEmpresa}>
           <h3 > Datos de la Empresa</h3>
           <div class="col-md-5">
-            <Label htmlFor="inputNombreEm" class="form-label">Nombre de la Empresa</Label>
-            <Input
+            <label htmlFor="inputNombreEm" class="form-label">Nombre de la Empresa</label>
+            <input
               type="text"
               aria-label="Zona"
               class="form-control"
               name='nombre'
               value={nombre}
               onChange={onInputChange}
-            ></Input>
+            ></input>
           </div>
           <div class="col-md-5">
-            <Label htmlFor="inputNit" class="form-label">Nit</Label>
-            <Input
+            <label htmlFor="inputNit" class="form-label">Nit</label>
+            <input
               name='nit'
               value={nit}
               onChange={onInputChange}
               type="text"
               aria-label="Nit"
-              class="form-control"></Input>
+              class="form-control"></input>
           </div>
           <div class="col-md-5">
-            <Label htmlFor="inputMuni" class="form-label">Municipio</Label>
+            <label htmlFor="inputMuni" class="form-label">Municipio</label>
             <select
               id="inpuMunicipio"
               name='municipio'
@@ -65,50 +64,50 @@ const EmpresaFormFields = {
             </select>
           </div>
           <div class="col-md-5">
-            <Label htmlFor="inputzona" class="form-label">Zona</Label>
-            <Input
+            <label htmlFor="inputzona" class="form-label">Zona</label>
+            <input
               type="text"
               aria-label="Zona"
               name='zona'
               value={zona}
               onChange={onInputChange}
-              class="form-control"></Input>
+              class="form-control"></input>
           </div>
           <div class="col-md-5">
-            <Label htmlFor="inputDireccion" class="form-label">Dirección</Label>
-            <Input
+            <label htmlFor="inputDireccion" class="form-label">Dirección</label>
+            <input
               name='direccion'
               value={direccion}
               onChange={onInputChange}
               type="text"
               aria-label="Direccion"
-              class="form-control"></Input>
+              class="form-control"></input>
           </div>
           <div class="col-md-5">
-            <Label htmlFor="inputBarri" class="form-label">Barrio</Label>
-            <Input
+            <label htmlFor="inputBarri" class="form-label">Barrio</label>
+            <input
               name='barrio'
               value={barrio}
               onChange={onInputChange}
               type="text"
               aria-label="Barrio"
-              class="form-control"></Input>
+              class="form-control"></input>
           </div>
           <div class="col-md-5">
-            <Label htmlFor="inputPedido" class="form-label">Total Pedido</Label>
+            <label htmlFor="inputPedido" class="form-label">Total Pedido</label>
             <div class="input-group mb-6">
               <span class="input-group-text">$</span>
-              <Input name='totalpedido'
+              <input name='totalpedido'
                 value={totalpedido}
                 onChange={onInputChange}
                 type="text"
                 aria-label="Total pedido"
-                class="form-control"></Input>
+                class="form-control"></input>
               <span class="input-group-text">.00</span>
             </div>
           </div>
           <div class="col-12">
-          <Button type="submit" class="btn btn-primary">Guardar</Button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
         </div>
           </form>
       </div>

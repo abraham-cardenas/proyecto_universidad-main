@@ -24,11 +24,11 @@ const Sidebar = () => {
         </li>
         <li>
           <NavLink to="vehiculos" exact className="text-dark rounded py-2 w-100  d-inline-block px-3"
-            activeclassname="active"><FaIcons.FaUserPlus className="me-2" />vehiculos</NavLink>
+            activeclassname="active"><FaIcons.FaUserPlus className="me-2" />Vehiculos</NavLink>
         </li>
         <li>
           <NavLink to="empresas" exact className="text-dark rounded py-2 w-100  d-inline-block px-3"
-            activeclassname="active"><FaIcons.FaUserPlus className="me-2" />empresas</NavLink>
+            activeclassname="active"><FaIcons.FaUserPlus className="me-2" />Empresas</NavLink>
         </li>
         <p > <strong>Consulta de Vehiculos</strong></p>
         <li>

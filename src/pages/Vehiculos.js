@@ -21,8 +21,8 @@ export const Conductores = () => {
         <thead>
           <tr>
             <th>#Marca</th>
-            <th>nombre</th>
-            <th>apellidos</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
             <th>Disponibilidad</th>
             <th>Total de los pedidos</th>
             <th>Costo por desplazamiento</th>
