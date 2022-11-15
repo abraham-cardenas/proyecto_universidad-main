@@ -1,13 +1,18 @@
 import React from 'react';
-import SinglePage from '../LinealProgramming/SinglePage';
+import {SinglePage }from '../LinealProgramming/SinglePage';
+
+
 
 export const Home = () => {
+  
+
   return (
 
-    
+
 
       <SinglePage />
    
+
 
   );
 }
