@@ -68,7 +68,7 @@ export const Empresas = () => {
                 </>
 
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                  <button class="btn btn-primary me-md-1" type="button" onClick={() => onSelectDelete(empresa)} >Eliminar</button>
+                  <button class="btn btn-primary me-md-1" type="button" onClick={() => onSelectDelete(empresa)} > Deshabilitar </button>
                   <button class="btn btn-primary" type="button"  onClick={() => onSelect(empresa)}>Editar</button>
                 </div>
 
