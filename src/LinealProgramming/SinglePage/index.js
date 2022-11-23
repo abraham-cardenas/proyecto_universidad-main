@@ -15,11 +15,12 @@ export const SinglePage = () => {
   const [state, setState] = useState({
     model: {
       variables: [
-        { xi: 0, descripcion: "Cantidad x1", coeficiente: "2000000" },
-        { xi: 1, descripcion: "Cantidad x2", coeficiente: "5000000" },
-        { xi: 2, descripcion: "Cantidad x3", coeficiente: "8000000" },
-        { xi: 3, descripcion: "Cantidad x4", coeficiente: "15000000" },
-        { xi: 4, descripcion: "Cantidad x5", coeficiente: "20000000" }
+        { xi: 0, descripcion: "Cantidad x1", coeficiente: "50000" },
+        { xi: 1, descripcion: "Cantidad x2", coeficiente: "70000" },
+        { xi: 2, descripcion: "Cantidad x3", coeficiente: "90000" },
+        { xi: 3, descripcion: "Cantidad x4", coeficiente: "100000" },
+        { xi: 4, descripcion: "Cantidad x5", coeficiente: "150000" },
+      
       ],
       restricciones: [
         { ri: 0, descripcion: "Van N300", coeficientes: [1, 0, 0, 0, 0], eq: "<=", derecha: "5" },
@@ -27,6 +28,7 @@ export const SinglePage = () => {
         { ri: 2, descripcion: "Chevrolet luv", coeficientes: [0, 0, 1, 0, 0], eq: "<=", derecha: "3" },
         { ri: 3, descripcion: "NHR", coeficientes: [0, 0, 0, 1, 0], eq: "<=", derecha: "3" },
         { ri: 4, descripcion: "NKR", coeficientes: [0, 0, 0, 0, 1], eq: "<=", derecha: "2" },
+        { ri: 5, descripcion: "Promedio", coeficientes: [2000000, 5000000, 8000000, 15000000, 20000000], eq: "=", derecha: "50000000" },
       ],
       method: "simplex",
       objective: "max",
