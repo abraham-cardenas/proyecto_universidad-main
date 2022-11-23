@@ -14,6 +14,7 @@ import { useConductorStore } from '../hooks/useConductorStore';
 }; */
 
 const ConductorFormField = {
+  marca: "",
   nombre: "",
   marca: "",
   apellido: "",
