@@ -20,7 +20,7 @@ export const SearchResult = () => {
 
         if (!userLocation) return;
         const [lng, lat] = place.center;
-        getRouteBetweenPoints(userLocation, [lng, lat]);
+      //  getRouteBetweenPoints(userLocation, [lng, lat]);
     }
 
     if (isLoadingPlaces) {
