@@ -40,14 +40,6 @@ const Sidebar = () => {
             activeclassname="active"><FaIcons.FaCarAlt className="me-2" />Creacion de Vehiculos</NavLink>
         </li>
         <li>
-          <NavLink to="ReportesRutas" exact className="text-dark rounded py-2 w-100  d-inline-block px-3"
-            activeclassname="active"><FaIcons.FaReadme className="me-2" />Reportes de Rutas</NavLink>
-        </li>
-        <li>
-          <NavLink to="Informes" exact className="text-dark rounded py-2 w-100  d-inline-block px-3"
-            activeclassname="active"> <FaIcons.FaAddressBook className="me-2" />Informes</NavLink>
-        </li>
-        <li>
           <NavLink to="Mapa" exact className="text-dark rounded py-2 w-100  d-inline-block px-3"
             activeclassname="active"> <FaIcons.FaMapMarkedAlt className="me-2" />Mapa</NavLink>
         </li>

@@ -5,8 +5,6 @@ import { Home } from '../pages/Home';
 import { Usuarios } from '../pages/Usuarios';
 import { CreacionVehiculos } from '../pages/Creacionvehiculos'
 import {CreacionEmpresa} from '../pages/CreacionEmpresa'
-import ReportesRutas from '../pages/ReportesRutas'
-import Informes from '../pages/Informes'
 import Registro from '../components/Registro.js'
 import {Conductores } from '../pages/Vehiculos';
 import { Empresas } from '../pages/Empresas';
@@ -28,8 +26,6 @@ export const HomeRoutes = () => {
             <Route path='empresas' element={<Empresas />} />
             <Route path='CreacionEmpresa' element={<CreacionEmpresa />} />
             <Route path='CreacionVehiculos' element={<CreacionVehiculos />} />
-            <Route path='ReportesRutas' element={<ReportesRutas />} />
-            <Route path='Informes' element={<Informes />} />
             <Route path='Mapa' element={<Mapa/>} />
             <Route path='/*' element={<Navigate to='/' />} />
 
