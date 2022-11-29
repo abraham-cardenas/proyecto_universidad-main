@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 const calendarApi = axios.create({
-    baseURL: 'http://localhost:4000'
+    baseURL: 'https://base-de-datos-empresa.herokuapp.com/'
 });
 
 //TODO: configurar interceptores
